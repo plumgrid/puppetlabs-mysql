@@ -2,10 +2,10 @@
 # We remove them here. You can subclass this class to overwrite this behavior.
 class mysql::server::account_security {
   database_user {
-    [ "root@${::fqdn}",
+    [ #"root@${::fqdn}",
       'root@127.0.0.1',
       'root@::1',
-      "@${::fqdn}",
+      #"@${::fqdn}",
       '@localhost',
       '@%']:
     ensure  => 'absent',

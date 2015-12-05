@@ -1,3 +1,27 @@
+## 2015-09-22 - Supported Release 3.6.1
+### Summary
+This is a security and bugfix release that fixes incorrect username truncation in the munge for the mysql_user type, incorrect function used in `mysql::server::backup` and fixes compatibility issues with PE 3.3.x.
+
+#### Bugfixes
+- Loosen the regex in mysql_user munging so the username is not unintentionally truncated.
+- Use `warning()` not `warn()`
+- Metadata had inadvertantly dropped 3.3.x support
+- Some 3.3.x compatibility issues in `mysqltuner` were corrected
+
+## 2015-08-10 - Supported Release 3.6.0
+### Summary
+This release adds the ability to use mysql::db and `mysql_*` types against unmanaged or external mysql instances.
+
+#### Features
+- Add ability to use mysql::db WITHOUT mysql::server (ie, externally)
+- Add prescript attribute to mysql::server::backup for xtrabackup
+- Add postscript ability to xtrabackup provider.
+
+#### Bugfixes
+- Fix default root passwords blocking puppet on mysql 5.8
+- Fix service dependency when package_manage is false
+- Fix selinux permissions on my.cnf
+
 ##2015-07-23 - Supported Release 3.5.0
 ###Summary
 A small release to add explicit support to newer Puppet versions and accumulated patches.
